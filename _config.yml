@@ -19,3 +19,4 @@ github_username:  trongthien18
 
 # Build settings
 markdown: kramdown
+permalink: pretty
