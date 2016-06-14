@@ -6,17 +6,20 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Your awesome title
+title: Be awesome today
+header-img: img/home-bg.jpg
 email: trongthien18@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+copyright_name: Thien Le
+description: "Write your site description here. It will be used as your sites meta description as well!"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://trongthien18.github.io" # the base hostname & protocol for your site
 twitter_username: trongthienle
 github_username:  trongthien18
+facebook_username:  trongthien.le
+email_username:     trongthien18@gmail.com
 
 # Build settings
 markdown: kramdown
 permalink: pretty
+highlighter: rouge
+paginate: 5
