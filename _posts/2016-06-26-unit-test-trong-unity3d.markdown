@@ -61,7 +61,7 @@ header-img: "img/post-bg-01.jpg"
   <li>Dọn dẹp tài nguyên sau khi kết thúc kiểm tra.</li>
 </ul>
 
-<h2 class="section-heading">Chiến lược viết Unit Test hiệu quảt</h2>
+<h2 class="section-heading">Chiến lược viết Unit Test hiệu quả</h2>
 <ul style="list-style-type:disc">
   <li>Mọi UT phải bắt đầu với trạng thái "fail" và chuyển trạng thái "pass" sau một số thay đổi hợp lý đối với mã chính. </li>
   <li>Mỗi khi viết một đoạn mã quan trọng, hãy viết các UT tương ứng cho đến khi bạn không thể nghĩ thêm tình huống nào nữa. </li>
@@ -91,25 +91,25 @@ header-img: "img/post-bg-01.jpg"
 
 <img src="{{ site.baseurl }}/img/post/unit_test_unity_1/image001.png"/>
 
-<p>Đề viết các unit test, ta cần giải quyết 2 vấn đề sau:</p>
+<p>Để viết các unit test, ta cần giải quyết 2 vấn đề sau:</p>
 <ul style="list-style-type:disc">
-  <li>MonoBehaviour là một lớp đặc biệt được xử lý bởi Unity theo một cách đặc biết (wtf?). Ta không thể tạo mới với những class này ( ví dụ: var ship = new SpaceshipMotor() !!!).</li>
+  <li>MonoBehaviour là một lớp đặc biệt được xử lý bởi Unity theo một cách đặc biệt (wtf?). Ta không thể tạo mới với những class này ( ví dụ: var ship = new SpaceshipMotor() !!!).</li>
   <li>Các đoạn code logic đều nằm trong Update() -> phụ thuộc vào thời gian -> không thể test được.</li>  
 </ul>
 
-<p>Vì vậy, đầu tiên ta cần phải refactor lại code sao cho các phương thức là tối giản và tách các phuong thức sử dụng Unity API riêng biệt. Sau khi làm xong, script của ta sẽ trông như thế này:</p>
+<p>Vì vậy, đầu tiên ta cần phải refactor lại code sao cho các phương thức là tối giản và tách các phương thức sử dụng Unity API riêng biệt. Sau khi làm xong, script của ta sẽ trông như thế này:</p>
 
 <img src="{{ site.baseurl }}/img/post/unit_test_unity_1/image002.png"/>
 
 <p>Bây giờ, ta đã có các phương thức riêng rẽ và phù hợp để test nếu có một đối tượng ảo SpaceshipMotor, nhưng điều đó là không thể vì class này vẫn đang kế thừa từ MonoBehaviour. </p>
-<p>Vậy thì ta cần làm gì? Trước tiên, ta sẽ tách rời tất cả những đoạn code không liên quan tới Unity API ra thành một class riêng, rồi sau đó liên kết lại với class SpaceshipMotor. Nhìn lại ta sẽ thấy, trong class SpaceshipMotor chỉ có 2 phương thức TransformPosition() và InstanciateBullet() là có dung Unity API, những phần còn lại có thể tách ra được.</p>
+<p>Vậy thì ta cần làm gì? Trước tiên, ta sẽ tách rời tất cả những đoạn code không liên quan tới Unity API ra thành một class riêng, rồi sau đó liên kết lại với class SpaceshipMotor. Nhìn lại ta sẽ thấy, trong class SpaceshipMotor chỉ có 2 phương thức TransformPosition() và InstanciateBullet() là có dùng Unity API, những phần còn lại có thể tách ra được.</p>
 <p>Vấn đề còn lại là làm sao để các logic bên lớp mới được tách ra đó có thể giao tiếp với phần còn lại. Câu trả lời đơn giản nhất là sử dụng interface như dưới đây:</p>
 
 <img src="{{ site.baseurl }}/img/post/unit_test_unity_1/image003.png"/>
 
 <img src="{{ site.baseurl }}/img/post/unit_test_unity_1/image004.png"/>
 
-<p>Cùng bắt đầu với class SpaceshipMotor. Class này được cài đặt thêm các interface là ImovementController và IgunController (nghe tên là biết nó làm gì rồi hé). Trong class này có một field mới kiểu SpaceshipController (lớp chứa tất cả các logic được tách ra). Class SpaceshipController không biết gì về SpaceshipMotor, và việc duy nhất nó làm là gọi các phương thức thông qua interface.</p>
+<p>Cùng bắt đầu với class SpaceshipMotor. Class này được cài đặt thêm các interface là IMovementController và IGunController (nghe tên là biết nó làm gì rồi hé). Trong class này có một field mới kiểu SpaceshipController (lớp chứa tất cả các logic được tách ra). Class SpaceshipController không biết gì về SpaceshipMotor, và việc duy nhất nó làm là gọi các phương thức thông qua interface.</p>
 <p>UML diagram hiện tại sẽ trông như thế này:</p>
 
 <img src="{{ site.baseurl }}/img/post/unit_test_unity_1/image005.png"/>
@@ -148,8 +148,8 @@ header-img: "img/post-bg-01.jpg"
 
 <img src="{{ site.baseurl }}/img/post/unit_test_unity_1/image007.png"/>
 
-<p>Cú pháp: Substitute.For<Tên class or Interface>() trong thư viện NSubstutite sẽ tạo ra và trả về một đối tượng ảo (Mock object) với các hành vi và thuộc tính như một đối tượng thật.</p>
-<p>Để ý phương thức Test của chúng ta. Đầu tiên, sau khi khởi tạo các đối tượng ảo, ta xét giá trị bulletLeft của đối tượng motor về 0 (nghĩa là lấy hết đạn ra). Sau đó gọi hàm bắn ApplyFire() của đối tượng đó. Trong phần kiểm tra, xác nhận, nếu như gunController không nhận được bất kỳ lệnh bắn (Fire()) nào thì có nghĩa là test của chúng ta đã pass (rõ ràng rồi, vì ta đã lấy hết đạn ra rồi mà bắn sao được nữa :v ).</p>
+<p>Cú pháp: Substitute.For&lt;Tên class or Interface&gt;() trong thư viện NSubstutite sẽ tạo ra và trả về một đối tượng ảo (Mock object) với các hành vi và thuộc tính như một đối tượng thật.</p>
+<p>Để ý phương thức Test của chúng ta. Đầu tiên, sau khi khởi tạo các đối tượng ảo, ta xét giá trị bulletLeft của đối tượng motor về 0 (nghĩa là lấy hết đạn ra). Sau đó gọi hàm bắn ApplyFire() của đối tượng đó. Trong phần kiểm tra, xác nhận, nếu như gunController không nhận được bất kỳ lệnh bắn (Fire()) nào thì có nghĩa là test của chúng ta đã pass (rõ ràng rồi, vì ta đã lấy hết đạn ra rồi mà bắn sao được nữa :v).</p>
 
 <p>Tương tự, chúng ta có thể viết thêm nhiều test khác nữa như: test xem sau khi hết đạn rồi reload có bắn tiếp được không? Hay test xem tốc độ của phi thuyền có bị giảm khi còn ít máu không? …</p>
 
