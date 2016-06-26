@@ -357,6 +357,8 @@ public void OnMouseDown()
 <h2 class="section-heading">Kết luận</h2>
 
 <p>Cảm nhận đầu tiên sau khi tìm hiểu cái này là “Umm cũng hay ho phết đấy, tìm hiểu kỹ thêm xem sao”.<br>
-Mình chỉ mới làm demo nhỏ thôi nên chưa biết hay dở thế nào nên không dám chém bừa  Mình sẽ áp dụng trong dự án sắp tới và lúc đó mình sẽ nói lại sau, hehe.<br>
+Mình chỉ mới làm demo nhỏ thôi nên chưa biết hay dở thế nào nên không dám chém bừa :v Mình sẽ áp dụng trong dự án sắp tới và lúc đó mình sẽ nói lại sau, hehe.<br>
 Tuần sau mình sẽ thử tìm một vài framework sử dụng MVC để nghiên cứu, nếu không có thì mình sẽ tự viết lại, ahihi :v
 </p>
+
+<p><br>Tài liệu tham khảo: <a href="https://www.toptal.com/unity-unity3d/unity-with-mvc-how-to-level-up-your-game-development">Unity with MVC: How to Level Up Your Game Development</a></p>
