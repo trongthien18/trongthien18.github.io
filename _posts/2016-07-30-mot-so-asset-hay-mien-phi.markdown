@@ -2,7 +2,7 @@
 layout:     post
 title:      "Những Asset hay và miễn phí"
 subtitle:   "Free Assets"
-date:       2016-06-26 02:30:00
+date:       2016-07-26 02:30:00
 author:     "Thiên Lê"
 header-img: "img/post-free-unity-asset_bg.jpg"
 ---
@@ -51,7 +51,7 @@ header-img: "img/post-free-unity-asset_bg.jpg"
   <li><p><a href="https://www.assetstore.unity3d.com/en/#!/content/2704">Spawner - Free:</a> Asset này sẽ giúp cho việc sinh các đối tượng theo level trở nên dễ dàng hơn.</p></li>
   <li><p><a href="https://www.assetstore.unity3d.com/en/#!/content/28002">EZ Object Pools</a>&nbsp;:&nbsp;The <strong>EZ Object Pools</strong> system is designed to be simple to set up and easy to integrate into existing projects.</p></li>
   <li><p><a href="https://www.assetstore.unity3d.com/en/#!/content/12047">Log Viewer</a>&nbsp;:&nbsp;Using this tool you can easily check your editor console logs inside the game itself! even on mobile.</p></li>
-  <li><p><a href="https://www.assetstore.unity3d.com/en/#!/content/60055">Ink Unity Integration</a>&nbsp;: Ink is the open source narrative scripting language developed by Inkle.<p></li>  
+  <li><p><a href="https://www.assetstore.unity3d.com/en/#!/content/60055">Ink Unity Integration</a>&nbsp;: Ink is the open source narrative scripting language developed by Inkle.</p></li>  
 </ol>
 <h2 class="section-heading">Lighting:</h2>
 <ol>
@@ -73,7 +73,7 @@ header-img: "img/post-free-unity-asset_bg.jpg"
 <h2 class="section-heading">3D Models:</h2>
 <ol>
   <li><p><a href="https://www.assetstore.unity3d.com/en/#!/content/28926">Mini Mike’s Mini Metros</a>&nbsp;:&nbsp;An urban collection of over 400 models for building a small city.</p></li>
-  <li><p><a href="https://www.assetstore.unity3d.com/en/#!/content/19288">Free Rocks</a> : Add realistic rocks to your game.</li>
+  <li><p><a href="https://www.assetstore.unity3d.com/en/#!/content/19288">Free Rocks</a> : Add realistic rocks to your game.</p></li>
   <li><p><a href="https://www.assetstore.unity3d.com/en/#!/content/52977">Nature Starter Kit 2</a> :&nbsp;Create your own forests and meadows with this free asset bundle!</p></li>
   <li><p><a href="https://www.assetstore.unity3d.com/en/#!/content/6459">Destroyed City FREE</a>&nbsp;: Very helpful&nbsp;while prototyping.</p></li>
   <li><p><a href="https://www.assetstore.unity3d.com/en/#!/content/13811">Simple Modular Street Kit</a>&nbsp;: With this assets, its very easy to create roads in unity.</p></li>
